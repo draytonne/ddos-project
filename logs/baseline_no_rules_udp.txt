@@ -1,0 +1,15 @@
+Connecting to host 192.168.1.127, port 5201
+[  5] local 192.168.1.125 port 50024 connected to 192.168.1.127 port 5201
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-5.00   sec  59.6 MBytes   100 Mbits/sec  43158  
+[  5]   5.00-10.00  sec  59.6 MBytes   100 Mbits/sec  43167  
+[  5]  10.00-15.00  sec  59.6 MBytes   100 Mbits/sec  43162  
+[  5]  15.00-20.00  sec  59.6 MBytes   100 Mbits/sec  43160  
+[  5]  20.00-25.00  sec  59.6 MBytes   100 Mbits/sec  43164  
+[  5]  25.00-30.00  sec  59.6 MBytes   100 Mbits/sec  43163  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-30.00  sec   358 MBytes   100 Mbits/sec  0.000 ms  0/258974 (0%)  sender
+[  5]   0.00-30.00  sec   358 MBytes   100 Mbits/sec  0.054 ms  0/258974 (0%)  receiver
+
+iperf Done.
