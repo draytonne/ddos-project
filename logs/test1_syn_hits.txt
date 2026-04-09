@@ -1,0 +1,9 @@
+Apr  8 18:45:39 t1-ubuntu20-04 sudo:   ubuntu : TTY=pts/4 ; PWD=/home/ubuntu/ddos-project/logs ; USER=root ; COMMAND=/usr/sbin/iptables -A INPUT -p tcp --syn -m hashlimit --hashlimit-name syn_limit --hashlimit-above 20/sec --hashlimit-burst 10 --hashlimit-mode srcip -j LOG --log-prefix [SYN-FLOOD] 
+Apr  8 21:20:38 t1-ubuntu20-04 sudo:   ubuntu : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/sbin/iptables -A INPUT -p tcp --syn -m hashlimit --hashlimit-name syn_limit --hashlimit-above 20/sec --hashlimit-burst 10 --hashlimit-mode srcip -j LOG --log-prefix [SYN-FLOOD] 
+Apr  8 21:26:57 t1-ubuntu20-04 sudo:   ubuntu : TTY=pts/2 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/bin/grep SYN-FLOOD /var/log/iptables.log
+Apr  8 21:27:45 t1-ubuntu20-04 sudo:   ubuntu : TTY=pts/2 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/bin/grep SYN-FLOOD\\|SYN-DROP /var/log/iptables.log
+Apr  8 21:27:45 t1-ubuntu20-04 sudo:   ubuntu : TTY=pts/2 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/bin/grep SYN-FLOOD\\|SYN-DROP /var/log/iptables.log
+Apr  8 21:29:41 t1-ubuntu20-04 sudo:   ubuntu : TTY=pts/2 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/bin/grep -c SYN-FLOOD\\|SYN-DROP /var/log/iptables.log
+Apr  8 21:29:41 t1-ubuntu20-04 sudo:   ubuntu : TTY=pts/2 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/bin/grep -c SYN-FLOOD\\|SYN-DROP /var/log/iptables.log
+Apr  9 16:13:44 t1-ubuntu20-04 sudo:   ubuntu : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/sbin/iptables -A INPUT -p tcp --syn -m hashlimit --hashlimit-name syn_limit --hashlimit-above 20/sec --hashlimit-burst 10 --hashlimit-mode srcip -j LOG --log-prefix [SYN-FLOOD] 
+Apr  9 16:23:46 t1-ubuntu20-04 sudo:   ubuntu : TTY=pts/2 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/bin/grep SYN-FLOOD /var/log/iptables.log

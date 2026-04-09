@@ -1,0 +1,20 @@
+Chain INPUT (policy ACCEPT 5 packets, 894 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+   22  1120 LOG        tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp flags:0x17/0x02 limit: avg 20/sec burst 10 LOG flags 0 level 4 prefix "[SYN-FLOOD] "
+   22  1120 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp flags:0x17/0x02 limit: avg 20/sec burst 10
+ 1270 68288 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+    0     0 ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     tcp  --  *      *       192.168.1.0/24       0.0.0.0/0            tcp dpt:22
+    0     0 LOG        all  --  *      *       0.0.0.0/0            0.0.0.0/0            state INVALID LOG flags 0 level 4 prefix "[INVALID-STATE] "
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            state INVALID
+    0     0 LOG        tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp flags:0x3F/0x3F LOG flags 0 level 4 prefix "[XMAS-DROP] "
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp flags:0x3F/0x3F
+    0     0 LOG        tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp flags:0x3F/0x00 LOG flags 0 level 4 prefix "[NULL-DROP] "
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp flags:0x3F/0x00
+    0     0 LOG        all  --  !lo    *       127.0.0.0/8          0.0.0.0/0            LOG flags 0 level 4 prefix "[SPOOF-DROP] "
+    0     0 DROP       all  --  !lo    *       127.0.0.0/8          0.0.0.0/0           
+    0     0 LOG        udp  --  *      *       0.0.0.0/0            0.0.0.0/0            limit: above 100/sec burst 200 mode srcip LOG flags 0 level 4 prefix "[UDP-FLOOD] "
+    0     0 DROP       udp  --  *      *       0.0.0.0/0            0.0.0.0/0            limit: above 100/sec burst 200 mode srcip
+    4   112 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0            icmptype 8 limit: avg 10/sec burst 20
+    0     0 LOG        icmp --  *      *       0.0.0.0/0            0.0.0.0/0            icmptype 8 LOG flags 0 level 4 prefix "[ICMP-FLOOD] "
+    0     0 DROP       icmp --  *      *       0.0.0.0/0            0.0.0.0/0            icmptype 8
