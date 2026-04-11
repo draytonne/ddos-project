@@ -1,0 +1,15 @@
+table inet filter {
+	set blocked_ips {
+		type ipv4_addr
+		size 65535
+		flags dynamic,timeout
+		timeout 1m
+	}
+
+	chain input {
+		type filter hook input priority filter; policy accept;
+		ip saddr @blocked_ips drop
+		tcp dport 80 meter http_meter size 65535 { ip saddr limit rate over 50/second } add @blocked_ips { ip saddr } log prefix "[HTTP-FLOOD] " drop
+		tcp dport 443 meter https_meter size 65535 { ip saddr limit rate over 50/second } add @blocked_ips { ip saddr } log prefix "[HTTPS-FLOOD] " drop
+	}
+}
